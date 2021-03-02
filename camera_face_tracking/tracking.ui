@@ -338,7 +338,7 @@
     </rect>
    </property>
    <property name="text">
-    <string>... Not connected ...</string>
+    <string>................................ Not connected ..............................</string>
    </property>
   </widget>
   <widget class="QCheckBox" name="InvertTilt_checkbox">

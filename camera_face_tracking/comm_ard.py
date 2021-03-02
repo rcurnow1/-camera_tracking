@@ -22,14 +22,13 @@ class ard_connect():
     def waitForArduino(self):
 
         msg = ""
-        while msg.find("Hasta la vista baby") == -1:  #string.find() return -1 if value not found
+        while msg.find("Hasta la vista baby") == -1:  #return -1 if value not found
 
-            while self.ser.inWaiting() == 0:  #inWaiting() return number of bytes in buffer, equivalent of Serial.available in arduino
+            while self.ser.inWaiting() == 0:  # return number of bytes in buffer, equivalent of Serial.available in arduino
                 pass
 
             msg = self.recvFromArduino()   #return decoded serial data
-            print(msg)  # python3 requires parenthesis
-            #print()
+            print(msg)
 
     def recvFromArduino(self):
 
@@ -38,7 +37,7 @@ class ard_connect():
         byteCount = -1  #to allow for the fact that the last increment will be one too many
 
         # wait for the start character
-        while ord(x) != self.startMarker:  # ord() return utf-8 for a char(1 length string)  ex: return 60 for char <
+        while ord(x) != self.startMarker:  #return utf-8 for a char(1 length string)  ex: return 60 for char <
             x = self.ser.read()  # loop until start marker found
 
         # save data until the end marker is found
